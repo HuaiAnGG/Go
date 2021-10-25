@@ -2,7 +2,7 @@
 
 **this project for study.**
 
-[TOC]
+[toc]
 
 ## 目录
 
