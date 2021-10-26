@@ -5,14 +5,15 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	<groupId>wiki.laona</groupId>
-	<artifactId>mq-demo</artifactId>
+	<artifactId>activemq-demo</artifactId>
 	<packaging>pom</packaging>
 	<version>1.0</version>
 	
 	<modules>
-		<module>mq-normal-demo</module>
-		<module>mq-spring-demo</module>
-	</modules>
+		<module>activemq-normal-demo</module>
+		<module>activemq-spring-demo</module>
+		<module>activemq-springboot-demo</module>
+    </modules>
 	
 	<properties>
 		<maven.compiler.source>8</maven.compiler.source>
