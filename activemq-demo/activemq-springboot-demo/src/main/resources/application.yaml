@@ -1,0 +1,14 @@
+server:
+  port: 9191
+
+spring:
+  application:
+    name: activemq-producer   # 服务名称
+
+  activemq:
+    broker-url: tcp://172.16.23.196:61616   # 连接地址
+    user: admin
+    password: admin
+
+  jms:
+    pub-sub-domain: false   # 指定发送模式（点对点 true, 发布订阅 false）
