@@ -32,3 +32,12 @@
 #### 1.2.3 mq-springboot-demo
 
 > 整合 springboot 的 ActiveMQ 例子
+
+#### 2.1 设计模式 design-pattern
+
+#### 2.2 单例模式 singleton
+
+- 单例模式：懒汉单例模式、饿汉单例模式、双检锁单例模式(线程安全)
+
+
+
