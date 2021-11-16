@@ -15,10 +15,10 @@ import javax.jms.TextMessage;
 @Component
 public class MessageListener {
 
-    /**
+    /**z
      * 接收消息
      */
-    @JmsListener(destination = "springboot_queue")
+    @JmsListener(destination = "WechatBot_Message")
     public void receiveMessage(Message message) throws JMSException {
         if (message instanceof TextMessage) {
             TextMessage textMessage = (TextMessage) message;
