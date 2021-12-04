@@ -38,4 +38,4 @@ gradle.properties
 
 *.log
 
-target/
+**/target/
