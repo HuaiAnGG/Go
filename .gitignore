@@ -37,3 +37,5 @@ gradle.properties
 .vscode
 
 *.log
+
+target/
