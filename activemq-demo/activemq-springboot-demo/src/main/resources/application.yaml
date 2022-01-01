@@ -6,7 +6,8 @@ spring:
     name: activemq-producer   # 服务名称
 
   activemq:
-    broker-url: tcp://172.16.23.196:61616   # 连接地址
+#    broker-url: tcp://172.16.23.196:61616   # company machine 连接地址
+    broker-url: tcp://localhost:61616   # personal machine 连接地址
     user: admin
     password: admin
 

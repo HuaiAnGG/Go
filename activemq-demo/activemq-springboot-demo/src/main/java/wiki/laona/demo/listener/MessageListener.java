@@ -4,6 +4,7 @@ import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 
 import javax.jms.JMSException;
+import javax.jms.MapMessage;
 import javax.jms.Message;
 import javax.jms.TextMessage;
 
@@ -15,14 +16,25 @@ import javax.jms.TextMessage;
 @Component
 public class MessageListener {
 
-    /**z
+    /**
      * 接收消息
      */
     @JmsListener(destination = "WechatBot_Message")
-    public void receiveMessage(Message message) throws JMSException {
+    public void receiveTextMessage(Message message) throws JMSException {
         if (message instanceof TextMessage) {
             TextMessage textMessage = (TextMessage) message;
             System.out.println("收到消息为 = " + textMessage.getText());
         }
     }
+
+    // @JmsListener(destination = "springboot_map_queue")
+    // public void receiveMapMessage(Message message) throws JMSException {
+    //     if (message instanceof MapMessage) {
+    //         MapMessage mapMessage = (MapMessage) message;
+    //         String name = mapMessage.getString("name");
+    //         int age = mapMessage.getInt("age");
+    //         System.out.println("name = " + name);
+    //         System.out.println("age = " + age);
+    //     }
+    // }
 }
