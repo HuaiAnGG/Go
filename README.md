@@ -39,6 +39,14 @@
 
 - 单例模式：懒汉单例模式、饿汉单例模式、双检锁单例模式(线程安全)
 
+#### 2.3 工厂模式 factory
+
+- 简单工厂、策略工厂
+
+#### 2.4 依赖注入 Definition Infection
+
+- xml 依赖注入框架
+
 ### 3. Spring-Cloud
 
 #### 3.1 spring-cloud-eureka
