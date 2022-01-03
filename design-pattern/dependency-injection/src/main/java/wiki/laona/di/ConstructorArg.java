@@ -10,6 +10,6 @@ import lombok.Data;
 @Data
 public class ConstructorArg {
     private boolean isRef;
-    private Class type;
+    private Class<?> type;
     private Object arg;
 }

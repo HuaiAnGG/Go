@@ -1,5 +1,6 @@
 package wiki.laona.di;
 
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.InputStream;
 import java.util.List;
 
@@ -14,8 +15,9 @@ public interface BeanConfigParser {
      *
      * @param inputStream io 输入流
      * @return {@link List<BeanDefinition>} #BeanDefinition 列表
+     * @throws ParserConfigurationException
      */
-    List<BeanDefinition> parse(InputStream inputStream);
+    List<BeanDefinition> parse(InputStream inputStream) throws ParserConfigurationException;
 
     /**
      * 读取配置文件转换成 {@link BeanDefinition}
