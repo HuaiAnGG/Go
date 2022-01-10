@@ -30,7 +30,7 @@ public class ClassPathXmlApplicationContext implements ApplicationContext {
                 throw new RuntimeException("Can not find config file:" + configLocation);
             }
 
-            System.out.printf("beans.xml file content: %s", in);
+            System.out.printf("beans.xml file content: %s \n", in);
             List<BeanDefinition> beanDefinitions = beanConfigParser.parse(in);
             beansFactory.addBeanDefinitions(beanDefinitions);
         } catch (Exception e) {
