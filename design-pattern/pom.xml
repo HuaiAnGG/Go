@@ -12,6 +12,7 @@
         <module>singleton</module>
         <module>factory</module>
         <module>dependency-injection</module>
+        <module>builder</module>
     </modules>
 
     <properties>
