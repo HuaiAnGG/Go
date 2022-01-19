@@ -1,8 +1,7 @@
-package wiki.laona.input;
+package wiki.laona.file;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Arrays;
 
 /**
  * @author laona
