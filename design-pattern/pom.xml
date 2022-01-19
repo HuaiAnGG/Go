@@ -13,7 +13,7 @@
         <module>factory</module>
         <module>dependency-injection</module>
         <module>builder</module>
-        <module>prototype</module>
+	    <module>prototype</module>
         <module>proxy</module>
         <module>bridge</module>
     </modules>
