@@ -29,6 +29,7 @@ public class FileOutputStreamTest {
     private void fileOutputStreamTest2() {
         boolean append = true;
         try (FileOutputStream fos = new FileOutputStream(PATH, append)) {
+            System.out.println(fos.getFD());
             String content = "Hello world!\n";
             fos.write(content.getBytes(StandardCharsets.UTF_8), 0, content.length());
             fos.flush();
