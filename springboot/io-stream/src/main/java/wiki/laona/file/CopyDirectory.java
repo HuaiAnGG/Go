@@ -49,19 +49,20 @@ public class CopyDirectory {
         for (File file : files) {
             // 没有目标文件夹则创建
             String fileName = file.getName();
-            File targetFile = new File(dest + "/" + fileName);
-            if (file.isDirectory() && !targetFile.exists()) {
-                targetFile.mkdirs();
+            File destFile = new File(dest);
+            // 是文件夹进行文件夹的处理            
+            if (!destFile.exists()) {
+                destFile.mkdirs();
             }
-            // 是文件夹进行文件夹的处理
+            String deathPath = new File(destFile.getAbsolutePath(), fileName).getAbsolutePath();
             if (file.isDirectory()) {
-                String directoryName = file.getName();
-                copyDirTo(file.getAbsolutePath(), dest + "/" + directoryName);
+                copyDirTo(file.getAbsolutePath(), deathPath);
                 continue;
             }
+
             // 进行拷贝文件
             try {
-                copyFileTo(file.getAbsolutePath(), targetFile.getAbsolutePath());
+                copyFileTo(file.getAbsolutePath(), deathPath);
             } catch (FileNotFoundException e) {
                 System.out.println("文件拷贝失败");
                 return false;
