@@ -101,6 +101,3 @@ class MyRunnableTest4 implements Runnable {
 }
 
 
-interface Constant {
-    int NUM = 10;
-}
