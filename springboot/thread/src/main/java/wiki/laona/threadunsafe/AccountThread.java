@@ -1,4 +1,4 @@
-package wiki.laona.threadunsafe.threasafe;
+package wiki.laona.threadunsafe;
 
 /**
  * @author laona

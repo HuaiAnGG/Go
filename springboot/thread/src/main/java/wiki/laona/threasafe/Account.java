@@ -5,7 +5,11 @@ package wiki.laona.threasafe;
  * @description 银行账户(安全)
  * @date 2022-01-24 21:50
  **/
+@SuppressWarnings("all")
 public class Account {
+
+    private final Object obj = new Object();
+
     private String actNo;
     private double balance;
 
@@ -18,10 +22,29 @@ public class Account {
      * 取款的方法
      * synchronized 保证了线程的安全，想要保证在某一个状态下只有共享某个数据的线程共享
      * 对于银行账户而言，账号是共享的(即当前类是共享，this 表示当前类)
+     * <p>
+     * synchronized 可以锁当前对象，可以锁当前实例变量。
+     * 线程共享当前类对象，类对象中的实例变量只是针对当前类共享，故锁实例变量等于锁对象。
+     * 或者说，当前线程共享类只有一个实例变量，获取当前实例变量对象锁的时候就是给实例对象加锁，使得对于当前共享锁=实例变量对象锁
+     * <p>
+     * synchronized
+     *
      * @param money 取多少钱
      */
     public void withDraw(double money) {
-        synchronized (this) {
+        // synchronized (this) {
+        //     double before = this.getBalance();
+        //     double after = before - money;
+        //     try {
+        //         Thread.sleep(1000);
+        //     } catch (InterruptedException e) {
+        //         e.printStackTrace();
+        //     }
+        //     System.out.println(Thread.currentThread().getName() + " 账号：" + this.actNo + " 取款:" + money + ",之后的余额 =
+        //     " + after);
+        //     this.setBalance(after);
+        // }
+        synchronized (obj) {
             double before = this.getBalance();
             double after = before - money;
             try {
