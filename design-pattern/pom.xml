@@ -16,6 +16,7 @@
 	    <module>prototype</module>
         <module>proxy</module>
         <module>bridge</module>
+        <module>compose</module>
     </modules>
 
     <properties>
