@@ -9,20 +9,23 @@ import java.util.Map;
  * @date 2021-12-08 20:47
  **/
 public class RuleConfigParserFactoryMap {
-    private static final Map<String, IRuleConfigParserFactory> cachedFactories = new HashMap<>(1 << 4);
+    /**
+     * 创建对象的 map 
+     */
+    private static final Map<String, IRuleConfigParserFactory> CACHED_FACTORIES = new HashMap<>(1 << 4);
     
     static {
-        cachedFactories.put("json", new JsonRuleConfigParserFactory());
-        cachedFactories.put("xml", new XmlRuleConfigParserFactory());
-        cachedFactories.put("yaml", new YamlRuleConfigParserFactory());
-        cachedFactories.put("properties", new PropertiesRuleConfigParserFactory());
+        CACHED_FACTORIES.put("json", new JsonRuleConfigParserFactory());
+        CACHED_FACTORIES.put("xml", new XmlRuleConfigParserFactory());
+        CACHED_FACTORIES.put("yaml", new YamlRuleConfigParserFactory());
+        CACHED_FACTORIES.put("properties", new PropertiesRuleConfigParserFactory());
     }
     
     public static IRuleConfigParserFactory getParserFactory(String type) {
         if (type == null || type.isEmpty()) {
             return null;
         }
-        IRuleConfigParserFactory parserFactory = cachedFactories.get(type);
+        IRuleConfigParserFactory parserFactory = CACHED_FACTORIES.get(type);
         return parserFactory;
     }
 }
