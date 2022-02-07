@@ -17,6 +17,7 @@
         <module>proxy</module>
         <module>bridge</module>
         <module>compose</module>
+        <module>observer</module>
     </modules>
 
     <properties>
