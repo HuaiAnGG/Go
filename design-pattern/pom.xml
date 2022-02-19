@@ -29,6 +29,7 @@
         <lombok-version>1.18.22</lombok-version>
         <jackson-version>2.11.4</jackson-version>
         <hutool-version>5.3.8</hutool-version>
+        <google-guaga-version>31.0.1-jre</google-guaga-version>
     </properties>
     
     <dependencyManagement>
@@ -72,6 +73,11 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${google-guaga-version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
