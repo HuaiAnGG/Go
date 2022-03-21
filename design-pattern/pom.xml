@@ -19,6 +19,7 @@
         <module>compose</module>
         <module>observer</module>
 	    <module>template-method</module>
+        <module>strategy</module>
     </modules>
 
     <properties>
@@ -32,7 +33,7 @@
         <hutool-version>5.3.8</hutool-version>
         <google-guaga-version>31.0.1-jre</google-guaga-version>
     </properties>
-    
+
     <dependencyManagement>
         <dependencies>
             <dependency>
