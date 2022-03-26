@@ -3,6 +3,7 @@ package wiki.laona.springcloud.service;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import wiki.laona.springcloud.pojo.Dept;
+import wiki.laona.springcloud.pojo.Result;
 
 import java.util.List;
 
@@ -18,18 +19,18 @@ public interface IDeptService {
      * @param dept {@see Dept} 部门实体
      * @return 成功 -> true, 失败 -> false
      */
-    boolean addDept(Dept dept);
+    Result<String> addDept(Dept dept);
 
     /**
      * 通过部门 ID 查询部门信息
      * @param id 部门 ID
      * @return dept {@see Dept} 部门信息
      */
-    Dept queryById(Long id);
+    Result<Dept> queryById(Long id);
 
     /**
      * 查询所有部门信息
      * @return dept {@see Dept} 所有部门信息
      */
-    List<Dept> queryAll();
+    Result<List<Dept>> queryAll();
 }

@@ -4,8 +4,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import wiki.laona.springcloud.dao.DeptDao;
 import wiki.laona.springcloud.pojo.Dept;
+import wiki.laona.springcloud.pojo.Result;
 import wiki.laona.springcloud.service.IDeptService;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -17,24 +19,24 @@ import java.util.List;
 @Slf4j
 public class DeptServiceImpl implements IDeptService {
 
-    private final DeptDao deptDao;
+    @Resource
+    private DeptDao deptDao;
 
-    public DeptServiceImpl(DeptDao deptDao) {
-        this.deptDao = deptDao;
+    @Override
+    public Result<String> addDept(Dept dept) {
+        boolean success = deptDao.addDept(dept);
+        return success ? Result.SUCCESS() : Result.ERROR();
     }
 
     @Override
-    public boolean addDept(Dept dept) {
-        return deptDao.addDept(dept);
+    public Result<Dept> queryById(Long id) {
+        Dept dept = deptDao.queryById(id);
+        return Result.SUCCESS(dept);
     }
 
     @Override
-    public Dept queryById(Long id) {
-        return deptDao.queryById(id);
-    }
-
-    @Override
-    public List<Dept> queryAll() {
-        return deptDao.queryAll();
+    public Result<List<Dept>> queryAll() {
+        List<Dept> deptList = deptDao.queryAll();
+        return Result.SUCCESS(deptList);
     }
 }

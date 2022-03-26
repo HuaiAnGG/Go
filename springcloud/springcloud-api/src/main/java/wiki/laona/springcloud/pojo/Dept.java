@@ -3,6 +3,7 @@ package wiki.laona.springcloud.pojo;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
+import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;
 
@@ -18,6 +19,7 @@ public class Dept implements Serializable {
     private static final long serialVersionUID = Integer.MAX_VALUE;
 
     private Integer deptId;
+
     /**
      * 部门名称
      */
@@ -26,8 +28,4 @@ public class Dept implements Serializable {
      * 存在不同的数据库
      */
     private String dbSource;
-
-    public Dept(String dbSource) {
-        this.dbSource = dbSource;
-    }
 }

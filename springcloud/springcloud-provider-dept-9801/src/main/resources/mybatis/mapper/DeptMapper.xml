@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-		PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="wiki.laona.springcloud.dao.DeptDao">
-	
-	<insert id="addDept" parameterType="wiki.laona.springcloud.pojo.Dept">
-		insert into dept(dept_name, db_source)
-		values (#{deptName}, DATABASE())
-	</insert>
-	
-	<select id="queryById" resultType="wiki.laona.springcloud.pojo.Dept" parameterType="long">
-		select * from dept
-		where dept_id = #{deptId}
-	</select>
-	
-	<select id="queryAll" resultType="wiki.laona.springcloud.pojo.Dept">
-		select * from dept
-		where dept_id = #{deptId}
-	</select>
+    <insert id="addDept" parameterType="wiki.laona.springcloud.pojo.Dept">
+        insert into dept(dept_id, dept_name, db_source)
+        values (#{param.deptId}, #{param.deptName}, DATABASE())
+    </insert>
+
+    <resultMap id="deptResultMap" type="Dept">
+        <id column="dept_id" property="deptId" javaType="Integer"/>
+        <result column="dept_name" property="deptName" javaType="String"/>
+        <result column="db_source" property="dbSource" javaType="String"/>
+    </resultMap>
+
+    <select id="queryById" parameterType="long" resultMap="deptResultMap">
+        select dept_id, dept_name, db_source
+        from dept
+        where dept_id = #{deptId}
+    </select>
+
+    <select id="queryAll" resultMap="deptResultMap" resultType="List">
+        select dept_id, dept_name, db_source
+        from dept
+    </select>
 </mapper>

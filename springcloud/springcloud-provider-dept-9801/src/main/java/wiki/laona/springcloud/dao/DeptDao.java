@@ -1,7 +1,7 @@
 package wiki.laona.springcloud.dao;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Param;
 import wiki.laona.springcloud.pojo.Dept;
 
 import java.util.List;
@@ -12,7 +12,6 @@ import java.util.List;
  * @create 2022-03-13 23:38
  **/
 @Mapper
-@Repository
 public interface DeptDao {
 
     /**
@@ -20,7 +19,7 @@ public interface DeptDao {
      * @param dept {@see Dept} 部门实体
      * @return 成功 -> true, 失败 -> false
      */
-    boolean addDept(Dept dept);
+    boolean addDept(@Param("param") Dept dept);
 
     /**
      * 通过部门 ID 查询部门信息
