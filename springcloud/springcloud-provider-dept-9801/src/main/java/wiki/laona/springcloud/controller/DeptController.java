@@ -12,6 +12,7 @@ import java.util.List;
 /**
  * @author laona
  * @description 部门控制器
+ * 提供  restful 服务
  * @date 2022-03-26 14:32
  **/
 @RestController

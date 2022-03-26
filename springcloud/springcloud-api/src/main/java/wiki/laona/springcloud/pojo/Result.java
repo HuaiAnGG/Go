@@ -1,15 +1,19 @@
 package wiki.laona.springcloud.pojo;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
 /**
  * @author laona
  * @description 统一返回结果
+ * <p>
+ * 提供无参构造给远程调用接受参数
  * @date 2022-03-26 16:54
  **/
 @Data
+@NoArgsConstructor
 public class Result<T> implements Serializable {
 
     /**
@@ -29,15 +33,15 @@ public class Result<T> implements Serializable {
      */
     private T data;
 
-    public static <T> Result<T> ERROR(){
+    public static <T> Result<T> ERROR() {
         return new Result<>(ResponseEnum.ERROR.getMsg(), null, ResponseEnum.ERROR);
     }
 
-    public static <T> Result<T> ERROR(T data){
+    public static <T> Result<T> ERROR(T data) {
         return new Result<>(ResponseEnum.ERROR.getMsg(), data, ResponseEnum.ERROR);
     }
 
-    public static <T> Result<T> ERROR(String message, T data){
+    public static <T> Result<T> ERROR(String message, T data) {
         return new Result<>(message, data, ResponseEnum.ERROR);
     }
 
@@ -61,7 +65,7 @@ public class Result<T> implements Serializable {
         this(response.getCode(), message, response.getSuccess(), data);
     }
 
-    private Result(Integer code, String message, Boolean success, T data) {
+    public Result(Integer code, String message, Boolean success, T data) {
         this.code = code;
         this.message = message;
         this.success = success;

@@ -4,8 +4,8 @@ server:
 # mybatis 配置
 mybatis:
   type-aliases-package: wiki.laona.springcloud.pojo
-  config-location: classpath:mybatis/mybatis-config.xml
-  mapper-locations: classpath:mybatis/mapper/*.xml
+  config-location: classpath:/mybatis/mybatis-config.xml
+  mapper-locations: classpath:/mybatis/mapper/*.xml
 
 spring:
   application:

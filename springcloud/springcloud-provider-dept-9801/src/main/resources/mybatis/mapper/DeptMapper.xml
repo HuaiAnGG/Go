@@ -8,7 +8,7 @@
         values (#{param.deptId}, #{param.deptName}, DATABASE())
     </insert>
 
-    <resultMap id="deptResultMap" type="Dept">
+    <resultMap id="deptResultMap" type="wiki.laona.springcloud.pojo.Dept">
         <id column="dept_id" property="deptId" javaType="Integer"/>
         <result column="dept_name" property="deptName" javaType="String"/>
         <result column="db_source" property="dbSource" javaType="String"/>
