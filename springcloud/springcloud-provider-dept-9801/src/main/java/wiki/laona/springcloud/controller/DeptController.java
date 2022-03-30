@@ -1,7 +1,7 @@
 package wiki.laona.springcloud.controller;
 
-import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 import wiki.laona.springcloud.pojo.Dept;
 import wiki.laona.springcloud.pojo.Result;
@@ -20,9 +20,14 @@ import java.util.List;
 public class DeptController {
 
     private final IDeptService deptService;
+    /**
+     * 微服务配置信息获取客户端
+     */
+    private final DiscoveryClient client;
 
-    public DeptController(IDeptService deptService) {
+    public DeptController(IDeptService deptService, DiscoveryClient client) {
         this.deptService = deptService;
+        this.client = client;
     }
 
     @PostMapping("/add")
@@ -38,5 +43,19 @@ public class DeptController {
     @GetMapping("/list")
     public Result<List<Dept>> addDept() {
         return deptService.queryAll();
+    }
+
+    @GetMapping("/discovery")
+    public Object discovery() {
+        // 微服务的清单
+        List<String> services = client.getServices();
+        for (String service : services) {
+            System.out.println("service = " + service);
+        }
+        List<ServiceInstance> instances = client.getInstances("SPRINGCLOUD-PROVIDER-DEPT");
+        for (ServiceInstance instance : instances) {
+            System.out.println("instance = " + instance);
+        }
+        return this.client;
     }
 }
