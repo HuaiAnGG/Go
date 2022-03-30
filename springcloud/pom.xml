@@ -14,6 +14,8 @@
 		<module>springcloud-provider-dept-9801</module>
 		<module>springcloud-consumer-dept-9800</module>
 		<module>springcloud-eureka-9701</module>
+		<module>springcloud-eureka-9702</module>
+		<module>springcloud-eureka-9703</module>
 	</modules>
 
 	<properties>
