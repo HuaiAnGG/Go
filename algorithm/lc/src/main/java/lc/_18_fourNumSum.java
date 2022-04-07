@@ -1,4 +1,4 @@
-package wiki.laona.lc;
+package lc;
 
 import java.util.ArrayList;
 import java.util.Arrays;
