@@ -1,0 +1,16 @@
+server:
+  port: 9701
+
+# Eureka
+eureka:
+  instance:
+    hostname: localhost   # 服务端的实例
+  client:
+    register-with-eureka: false   # 服务端不需要想 Eureka 注册
+    fetch-registry: false     # 表示自己注册中心
+    service-url:      # Eureka 监控页面
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/  # 单机
+      # 集群
+      defaultZone: http://localhost:9702/eureka/,http://localhost:9703/eureka/
+  server:
+    enable-self-preservation: false     # 关闭自我保护模式

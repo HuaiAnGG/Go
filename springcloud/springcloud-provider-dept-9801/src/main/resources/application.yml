@@ -16,3 +16,18 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/springcloud?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
     username: root
     password: 123456
+
+
+# Eureka 配置，服务注册
+eureka:
+  client:
+    service-url:      # Eureka 监控页面
+      defaultZone: http://localhost:9701/eureka/,http://localhost:9702/eureka/,http://localhost:9703/eureka/
+  instance:
+    instance-id: springcloud-provider-dept-9801   # 实例 id
+
+
+# info 配置
+info:
+  app.name: springcloud
+  company.name: blog.laona.wiki
