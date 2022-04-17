@@ -1,4 +1,4 @@
-package wiki.laona.lc;
+package lc;
 
 /**
  * @author laona
